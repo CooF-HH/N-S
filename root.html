@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./css/common.css" type="text/css" />
+  <title>会"说话"的计算器</title>  
+  <script type="text/javascript">
+   function cc() {
+     document.getElementById("wenben").value=0;
+   }
+  function addText(str) {
+  var first=0;
+  first=document.getElementById("wenben").value;
+  var num=first;
+  if(first!=0){
+  num=first+str;
+  }else{
+    if(first.substring(first.length-2,first.length-1)=="."){
+        num=first+str;
+      }
+      if(str!="+"&&str!="-"&&str!="*"&&str!="/"
+        &&(first.substring(first.length-2,
+          first.length-1)!=".")) {
+        num=str;
+      }
+    }
+    document.getElementById("wenben").value=num;
+}
+  function jisuan() {
+  document.getElementById("wenben").value=
+  eval(document.getElementById("wenben").value);//进行计算得到结果
+  if(document.getElementById("wenben").value==521||520){
+    document.getElementById("wenben").value="I love you.💞";
+  }
+  else if(document.getElementById("wenben").value==5211314||5201314||1314){
+    document.getElementById("wenben").value="Forever love u.💗";
+  }
+  else if(document.getElementById("wenben").value==990131||970927||131||927){
+    document.getElementById("wenben").value="Happy birthday!🎉";
+  }
+  }
+
+  function addPoint(str2) {
+  var first=0;
+  first=document.getElementById("wenben").value;
+  if((first.indexOf(".")!=first.length-1)){
+    document.getElementById("wenben").value=first+str2;
+  }
+}
+ </script> 
+ </head> 
+ <body>
+  <div id="all"> 
+    <input type='text' id="wenben" value="0" readonly="readonly" name="result" /> 
+  <br /><br />
+ <div>
+  <input class="button" type="button" value="+" onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="-" onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="*" onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="/" onclick="addText(this.value)"/>&nbsp;&nbsp;
+ </div>
+ <br />
+ <div id="big">
+ <div>
+  <input class="button" type="button" value="7"  onclick="addText(this.value)" />&nbsp;&nbsp;
+  <input class="button" type="button" value="8"  onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="9"  onclick="addText(this.value)"/>&nbsp;&nbsp;
+ </div>
+  <br /><br />
+ <div>
+  <input class="button" type="button" value="4"  onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="5"  onclick="addText(this.value)" />&nbsp;&nbsp;
+  <input class="button" type="button" value="6"  onclick="addText(this.value)"/>&nbsp;&nbsp;
+ </div>
+ <br /><br />
+ <div>
+  <input class="button" type="button" value="1" onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="2" onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="3" onclick="addText(this.value)"/>&nbsp;&nbsp;
+ </div>
+  <br /><br />
+ <div>
+  <input id="zero" type="button" value="0"  onclick="addText(this.value)"/>&nbsp;&nbsp;
+  <input class="button" type="button" value="." onclick="addPoint(this.value)"/>&nbsp;&nbsp;
+ </div>
+ </div>
+ <div class="biglong">
+  <input class="long" type="button" value="C" onclick="cc()" />
+ </div>
+ <br />
+ <div class="biglong">
+  <input class="long" type="button" value="=" onclick="jisuan()"/>
+ </div>
+</div>
+ </body>
+</html>
